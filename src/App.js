@@ -8,11 +8,10 @@ import Details from './components/Details';
 
 function App() {
   
-  const API_KEY = "AIzaSyCAD23j-dEbcjHKreY_lrq8boyVlGLLEhA";
-
   const [latitude, setLatitude] = useState();
   const [longitude, setLongitude] = useState();
   const [places, setPlaces] = useState([]);
+  
 
   useEffect(() => {
     const getLocation = () => {
@@ -68,7 +67,7 @@ function App() {
         <Route path='/listing' element={<Listing places={places} />} />
         <Route path='/details' element={<Details latitude={latitude} longitude={longitude} />} />
       </Routes>
-     
+
     </div>
   );
 }
