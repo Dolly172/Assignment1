@@ -7,10 +7,16 @@ function Home({ onSelect }){
     const navigate = useNavigate();
 
     const choices = [
-        'restaurant',
-        'hospital',
-        'pizza',
-        'school'
+        'Bakery',
+        'Bar',
+        'Cafe',
+        'Fast food restaurant',
+        'Ice Cream Shop',
+        'Chinese Restaurant ',
+        'Pizza Place',
+        'Sushi Restaurant',
+        'Thai Restaurant',
+        'Vegetarian Restaurant'
       ];
     
       const [selectedOption, setSelectedOption] = useState(choices[0]);

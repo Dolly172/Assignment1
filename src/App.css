@@ -30,3 +30,9 @@
   height: 25px;
   font-weight: 600;
 }
+
+.App img{
+  border: 1px solid black;
+  padding: 2px;
+  margin: 5px;
+}

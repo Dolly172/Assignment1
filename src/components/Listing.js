@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import {useNavigate, Link} from 'react-router-dom';
 import '../App.css';
-
+import Pagination from './Pagination';
 
 function Listing({ places }){
 
@@ -17,29 +17,12 @@ function Listing({ places }){
 
   const totalPages = Math.ceil((filteredPlaces.length > 0 ? filteredPlaces : places).length / placesPerPage);
 
-
   const handleSearch = (e) => {
     setSearchQuery(e.target.value);
     const filtered = places.filter(place =>
         place.name.toLowerCase().includes(searchQuery.toLowerCase())
       );
       setFilteredPlaces(filtered);
-  };
-
-  const handlePagination = (pageNumber) => {
-    setCurrentPage(pageNumber);
-  };
-
-  const renderPagination = () => {
-    const pagination = [];
-    for (let i = 1; i <= totalPages; i++) {
-      pagination.push(
-        <button key={i} onClick={() => handlePagination(i)}>
-          {i}
-        </button>
-      );
-    }
-    return pagination;
   };
 
     function backhandler(){
@@ -70,7 +53,7 @@ function Listing({ places }){
         ))}
         </ul>
         <div>
-        {renderPagination()}
+            <Pagination setCurrentPage={setCurrentPage} totalPages={totalPages} places={places} filteredPlaces={filteredPlaces} />
       </div>
     </div>
     )

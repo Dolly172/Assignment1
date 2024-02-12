@@ -57,7 +57,7 @@ function App() {
   };
 
   const handleSelect = (selectedOption) => {
-    fetchPlaces(selectedOption);
+    fetchPlaces((selectedOption).toLowerCase());
   };
 
   return (
