@@ -36,3 +36,26 @@
   padding: 2px;
   margin: 5px;
 }
+
+.reviews{
+  border: 1px solid black;
+  font-weight: 600;
+  padding: 3px;
+  margin: 10px;
+}
+.font{
+  font-size: small;
+}
+.name{
+  font-size: medium;
+  color: #780000;
+}
+.details{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.details h3{
+  margin-top: -8px;
+}

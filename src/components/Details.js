@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import {useNavigate, useLocation} from 'react-router-dom';
+import '../App.css';
 
 function Details({latitude, longitude}){
     
@@ -62,14 +63,32 @@ function Details({latitude, longitude}){
     <button onClick={backhandler}>Back to Listing</button>  
     <button onClick={showDirections}>Show Directions</button> 
     <h1>Details</h1>
-        <div>
+        <div className='details'>
         <div id="map"></div>
-          <div>{placeDetails.name}</div>
+          <h3>{placeDetails.name}</h3>
           <div>Address: {placeDetails.vicinity}</div>
           <div>Rating: {placeDetails.rating}</div>
+          <div>Contact: {placeDetails.formatted_phone_number}</div>
+          <div className='reviews'>
+            Reviews: 
+            <>
+            {placeDetails?.reviews?.length > 0 ? 
+            (
+               placeDetails?.reviews?.slice(0, 5).map((el, index) => (
+                <div key={index} className='font'>
+                    <p className='name'>{el.author_name}</p>
+                    <p>{el.text}</p>
+                </div>
+                ))
+            ) : (
+                ' No Reviews Yet'
+            )}
+                
+            </>
+          </div>
           <h4>Photos:</h4>
           <div>
-          {placePhotos?.map((photo, index) => (
+          {placePhotos?.slice(0, 6).map((photo, index) => (
             <img
               key={index}
               src={photo.getUrl({minWidth: 300, maxWidth: 400, maxHeight: 200})}
